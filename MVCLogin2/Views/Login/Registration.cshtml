@@ -1,0 +1,36 @@
+﻿@model MVCLogin2.Models.UserModel
+@{
+    ViewBag.Title = "Registrar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Registrarse</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true,"Error al registrar usuario")
+
+    <div>
+        <fieldset>
+            <legend>Login</legend>
+            <div>@Html.LabelFor(u=>u.Email)</div>
+            <div>
+                @Html.TextBoxFor(u=> u.Email)
+                @Html.ValidationMessageFor(u=>u.Email)
+
+            </div>
+            <div>@Html.LabelFor(u => u.Password)</div>
+            <div>
+                @Html.TextBoxFor(u => u.Password)
+                @Html.ValidationMessageFor(u => u.Password)
+
+            </div>
+            <input type="submit" value="registrar" class="btn-info" />
+        </fieldset>
+        <p>
+            @ViewBag.message
+        </p>
+      
+    </div>
+  }
+

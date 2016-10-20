@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/boundles/modernizr")
+</head>
+<body>
+    <div >
+        @if (Request.IsAuthenticated)
+        {
+            //Se visualiza cuando el usuario se encuentra autenticado en el sistema
+            <strong>@Html.Encode(User.Identity.Name)</strong>
+            @Html.ActionLink("Cerrar Sesion","LogOut","User")
+        }
+        else
+        {
+            @Html.ActionLink("Registrar","Registration","Login")
+            <span>|</span>
+            @Html.ActionLink("Iniciar Sesion","LogIn","User")
+        }
+        @RenderBody()
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts",required:false)
+</body>
+</html>

@@ -1,0 +1,32 @@
+﻿  @model MVCLogin2.Models.UserModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/Login.cshtml";
+}
+
+<h2>Login</h2>
+ @using (Html.BeginForm())
+ {
+      @Html.ValidationSummary(true,"Login fallido, verificar los datos");
+     <div>
+          <fieldset>
+              <legend>Login</legend>
+              <div>@Html.LabelFor(u=>u.Email)</div>
+              <div>
+                  @Html.TextBoxFor(u=> u.Email)
+                  @Html.ValidationMessageFor(u=>u.Email)
+
+              </div>
+              <div>@Html.LabelFor(u => u.Password)</div>
+              <div>
+
+                  @Html.TextBoxFor(u => u.Password)
+                  @Html.ValidationMessageFor(u => u.Password)
+
+              </div>
+              <input type="submit" value="Iniciar Sesion" class="btn-info" />
+          </fieldset>
+
+
+     </div>
+ }
